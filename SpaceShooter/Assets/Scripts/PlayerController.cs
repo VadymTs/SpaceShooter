@@ -1,17 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-[System.Serializable]
-public class Boundary
-{
-    public float xMin;
-    public float xMax;
-}
-
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    //public Boundary boundary;
     public GameObject shot;
     public Transform spawnPoint;
     public float speed;
@@ -40,6 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
+                // Prevent fire when touched over UI
                 if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)){
 
                     // Calculate next fire time

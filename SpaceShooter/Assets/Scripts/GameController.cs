@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
         uiController.ShowPanel(3);
         uiController.PrintScore();
 
+        // Stop spawning asteroids and delete the remaining
         StopAllCoroutines();
         DestroyAsteroids();
     }
